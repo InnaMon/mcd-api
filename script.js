@@ -1,9 +1,7 @@
 const finances = document.getElementById('finances');
 const url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=EVV431001NUOLKDZ";
 
-fetch(url, {
-    mode: 'no-cors'
-    })
+fetch(url)
 .then(function(response) {
   return response.json();
 })
