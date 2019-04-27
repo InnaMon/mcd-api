@@ -4,12 +4,10 @@ const url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&sym
 fetch(url, {
     mode: 'no-cors'
     })
-// .then(function(response) {
-//   // Read the response as json.
-//   return response.json();
-// })
+.then(function(response) {
+  return response.json();
+})
 .then(function(data) {
-  // Do stuff with the JSON
   console.log(data);
 })
 .catch(function(error) {
@@ -17,16 +15,16 @@ fetch(url, {
 });
 
 // fetch(url, {
-//     mode: 'no-cors' // 'cors' by default
-//   })
-// .then(function(resp) {
-//     return resp.json();
-// })
+//     mode: 'no-cors'
+//     })
+// // .then(function(response) {
+// //   // Read the response as json.
+// //   return response.json();
+// // })
 // .then(function(data) {
-//     console.log(data);
-//     let price = data.results;
-//     retur
+//   // Do stuff with the JSON
+//   console.log(data);
 // })
 // .catch(function(error) {
-//     console.log('Error!', error);
+//   console.log('Error!', error);
 // });
