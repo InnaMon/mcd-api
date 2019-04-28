@@ -1,12 +1,16 @@
 const url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=EVV431001NUOLKDZ";
+const url2 = "https://investors-exchange-iex-trading.p.rapidapi.com/stock/{symbol}/book";
 
-fetch(url)
+fetch(url2)
 .then(function(response) {
   console.log(response);
   return response.json();
 })
 .then(function(data) {
+  //console.log(JSON.stringify(data));
   console.log(data);
+  //const obj = JSON.parse(data)
+  //console.log(obj);
   appendData(data)
 })
 .catch(function(error) {
@@ -15,7 +19,10 @@ fetch(url)
 
 function appendData(data) {
   const finances = document.getElementById('finances');
-  const div = document.createElement('div');
-  div.innerHTML = data[0];
-  finances.appendChild(div);
+  for(let i=0; i < data.length; i++) {
+    const div = document.createElement('div');
+    const post = data[i];
+    div.innerHTML = 'Data: ' + post;
+    finances.appendChild(div);
+  }
 }
