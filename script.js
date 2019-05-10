@@ -7,9 +7,9 @@ fetch(url)
   return response.json();
 })
 .then(function(data) {
-  let obj = JSON.stringify(data["Time Series (5min)"]);
-  //console.log(data.statusText);
+  let obj = JSON.stringify(data["Time Series (5min)"]["2019-05-09 16:00:00"]["2. high"]);
   appendData(obj);
+  console.log(obj);
 })
 .catch(function(error) {
   console.log('Error!', error);
@@ -18,7 +18,7 @@ fetch(url)
 function appendData(obj) {
   let x = JSON.parse(obj);
   const finances = document.getElementById('finances');
-  finances.innerHTML = x;
+  finances.innerText = `Finances: ${x}`;
 }
 
 // function appendData(obj) {
