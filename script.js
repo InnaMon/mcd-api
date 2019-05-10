@@ -18,7 +18,7 @@ fetch(url)
 function appendData(obj) {
   let x = JSON.parse(obj);
   const finances = document.getElementById('finances');
-  finances.innerText = `Finances: ${x}`;
+  finances.innerText = `Daily High for 2019-05-09 4:OO PM : ${x}`;
 }
 
 // function appendData(obj) {
