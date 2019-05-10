@@ -7,22 +7,26 @@ fetch(url)
   return response.json();
 })
 .then(function(data) {
-  console.log(JSON.stringify(data));
-  console.log(data.statusText);
-  //const obj = JSON.parse(data)
-  //console.log(obj);
-  //appendData(data)
+  let obj = JSON.stringify(data["Time Series (5min)"]);
+  //console.log(data.statusText);
+  appendData(obj);
 })
 .catch(function(error) {
   console.log('Error!', error);
 });
 
-function appendData(data) {
+function appendData(obj) {
+  let x = JSON.parse(obj);
   const finances = document.getElementById('finances');
-  for(let i=0; i < data.length; i++) {
-    const div = document.createElement('div');
-    const post = data[i];
-    div.innerHTML = 'Data: ' + post;
-    finances.appendChild(div);
-  }
+  finances.innerHTML = x;
 }
+
+// function appendData(obj) {
+//   const finances = document.getElementById('finances');
+//   for(let i=0; i < data.length; i++) {
+//     const div = document.createElement('div');
+//     const post = data[i];
+//     div.innerHTML = 'Data: ' + post;
+//     finances.appendChild(div);
+//   }
+// }
