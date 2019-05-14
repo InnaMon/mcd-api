@@ -7,9 +7,10 @@ fetch(url)
   return response.json();
 })
 .then(function(data) {
-  let obj = JSON.stringify(data["Time Series (5min)"]["2019-05-09 16:00:00"]["2. high"]);
+  let obj = JSON.stringify(data["Time Series (5min)"]); //removed ["2019-05-09 16:00:00"]["2. high"]
   appendData(obj);
   console.log(obj);
+  console.log(Array.from(obj));
 })
 .catch(function(error) {
   console.log('Error!', error);
