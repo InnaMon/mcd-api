@@ -10,10 +10,15 @@ fetch(url)
   console.log(data)
   // let obj = JSON.stringify(data["Time Series (5min)"] ["2019-05-20 16:00:00"]["2. high"]); 
   let obj = JSON.stringify(data["Time Series (5min)"]);
-  console.log(Array.from(obj))
+  // const array = Object.keys(obj).map(i => obj[i]);
+  // console.log(array);
+  const objArray = Array.from(obj).join("")
+  let finalData = objArray.slice(1, 44);
+  // console.log(objArray)
+  // console.log(objArray.slice(1, 44))
   // let obj = JSON.stringify(data);
-  
-  // appendData(obj);
+
+  appendData(finalData);
 })
 .catch(function(error) {
   console.log('Error!', error);
@@ -23,7 +28,7 @@ function appendData(obj) {
   // let x = JSON.parse(obj);
   var date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
   const finances = document.getElementById('finances');
-  finances.innerText = `Daily High for ${date} : ${obj}`; //insert current date
+  finances.innerText = `Daily High for ${date} : ${obj}}`; //insert current date
   // console.log(obj);
 }
 
